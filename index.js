@@ -26,10 +26,13 @@ try {
   const filename = core.getInput('filename')
   console.log(`Fetching ${url}!`);
 
-
-  const stream = fs.createWriteStream(filename);
-  const { body } = await fetch(url);
-  await finished(Readable.fromWeb(body).pipe(stream));
+  const response = await fetch("http://www.stackoverflow.com/");
+  const blob = await response.blob();
+  const arrayBuffer = await blob.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  fs.writeFileSync(filename, buffer)
+  // const stream = fs.createWriteStream(filename);
+  // await finished(Readable.fromWeb(body).pipe(stream));
 
   core.setOutput("status", "OK");
   console.log(`${filename} saved!`)
