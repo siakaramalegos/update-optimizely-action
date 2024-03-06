@@ -1,9 +1,9 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
-const fs = require('fs')
+import core from '@actions/core';
+import github from '@actions/github';
+import fs from 'fs';
 // const { mkdir } = require("fs/promises");
-const { Readable } = require('stream');
-const { finished } = require('stream/promises');
+// const { Readable } = require('stream');
+// const { finished } = require('stream/promises');
 // const path = require("path");
 
 // const downloadFile = (async (url, fileName) => {
