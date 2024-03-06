@@ -1,13 +1,17 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Fetch file'
+description: 'Fetch a file and return the contents'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  url:  # id of input
+    description: 'File URL to be fetched'
     required: true
-    default: 'World'
+    default: 'https://example.com/'
+  filename:  # id of input
+    description: 'File name'
+    required: true
+    default: 'output.js'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  status: # id of output
+    description: 'The status of the file fetch'
 runs:
   using: 'node20'
   main: 'dist/index.js'
